@@ -7,10 +7,10 @@ class Search extends Component{
 
   render(){
     const searchResults = this.props.searchResults.map( curr => <li key={curr.id}
-    data-id = {curr.id}  className = "currency-list-item">
+    data-id = {curr.id} onClick={this.props.handleSelect} className = "currency-list-item">
       <a href="#" className = "currency">
         <span>{ curr.name }</span>
-        <span>{ curr.currency_symbol }</span>
+        <span className="currency_symbol">{ curr.currency_symbol }</span>
       </a>
     </li>)
     return(
@@ -24,7 +24,7 @@ class Search extends Component{
             value={this.props.name} onChange={this.props.handleChange}>
             </input>
           </div>
-          <div>
+          <div className="currency-list">
             {searchResults}
           </div>
         </form>
