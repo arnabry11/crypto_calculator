@@ -18,7 +18,11 @@ class Calculate extends Component{
             </input>
           </div>
           <div className="form-group">
-            <input type="submit" className="calculate-btn" value="Calculate my total"/>
+            <input type="submit" 
+            ref="btn"
+            className="calculate-btn" 
+            value="Calculate my total"
+            />
           </div>
         </form>
       </div>

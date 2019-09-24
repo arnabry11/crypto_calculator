@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Search from "./Search";
 import Calculate from "./Calculate";
+import PortFolio from "./Portfolio";
 import axios from "axios";
 
 class PortfolioContainer extends Component{
@@ -49,6 +50,7 @@ class PortfolioContainer extends Component{
 
   handleSubmit(e){
     e.preventDefault()
+
     let currency = this.state.active_currency
     let amount =this.state.amount
 
@@ -56,7 +58,6 @@ class PortfolioContainer extends Component{
       id: currency.id,
       amount: amount
     }).then( (data) => { 
-      console.log(data);
       this.setState({
         amount: '',
         active_currency: null,
@@ -88,8 +89,13 @@ class PortfolioContainer extends Component{
       />
 
     return(
-      <div>
-        {searchOrCalculate}
+      <div className="grid">
+        <div className="left">
+          {searchOrCalculate}
+        </div>
+        <div className="right">   
+          <PortFolio portfolio={this.state.portfolio} />
+        </div>
       </div>
     );    
   }
