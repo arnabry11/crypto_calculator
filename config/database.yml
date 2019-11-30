@@ -19,6 +19,10 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
+  username: postgres
+  password: postgres
+  host: 0.0.0.0
+  port: 5432
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
@@ -28,20 +32,19 @@ development:
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
-  # the same name as the operating system user that initialized the database.
-  #username: crypto-calculator
+  # the same name as the operating system user that initialized the database
 
   # The password associated with the postgres role (username).
-  #password:
+
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  #host: localhost
+
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  #port: 5432
+
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -80,6 +83,8 @@ test:
 #
 production:
   <<: *default
-  database: crypto-calculator_production
-  username: crypto-calculator
-  password: <%= ENV['CRYPTO-CALCULATOR_DATABASE_PASSWORD'] %>
+  database: crypto_calculator_production
+  username: postgres
+  password: postgres
+  host: 172.17.0.2
+  port: 5432
